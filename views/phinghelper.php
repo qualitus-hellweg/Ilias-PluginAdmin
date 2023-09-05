@@ -3,8 +3,8 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
     die();
 }
 ?>
-<h1>phinghelper</h1>
-<h2>plugins.csv - File</h2>
+<h1 class="main-header">phinghelper</h1>
+<h2  class="second-header">plugins.csv - File</h2>
 <?php
 
 $out = 'Name;Path;URL;prod-Branch;dev-Branch;composer;comments' . PHP_EOL;
@@ -55,7 +55,7 @@ foreach( $allRepos as $path ) {
         . PHP_EOL;
 }
 
-echo '<textarea cols="400" rows="40">'
+echo '<textarea class="copypaste" style="max-width: 100%;" cols="400" rows="40">'
         . $out 
         . '</textarea>'
 ;

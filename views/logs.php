@@ -3,7 +3,7 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
     die();
 }
 ?>
-<h1>logs</h1>
+<h1 class="main-header">logs</h1>
 <?php
 $baseUrl  = $_SERVER[ 'PHP_SELF' ];
 $allFiles = array();
@@ -37,9 +37,6 @@ if( strlen( $filename ) == 0 ) {
     $filename = $first;
 }
 
-// zable-formating the elements, add css and remove "delete me" liens
-echo '<table><tr><td valign="top">';    // delete me
-
 echo '<div id="logFiles">';
 echo '<h2>all Log Files</h2>';
 echo '<table id="fileTable">';
@@ -57,20 +54,11 @@ foreach( $allFiles as $name => $timestamp ) {
 echo '</table>';
 echo '</div>';
 
-echo '</td><td valign="top">';          // delete me
-
 if( is_file( $path . '/' . $filename ) ) {
     echo '<div id="logFileContent">';
     echo '<h2>contents of: ' . $filename . '</h2>'; 
-    echo '<div id="logContent"><textarea rows="20" cols="200">';
+    echo '<div id="logContent"><textarea class="copypaste" rows="20" cols="200">';
     echo file_get_contents( $path . '/' . $filename );
     echo '</textarea></div>';
     echo '</div>';
 }
-
-echo '</tr></table>';                   // delete me
-
-
-
-
-

@@ -1,0 +1,192 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+.side-nav {
+	background-color: #333;
+	color: #fff;
+	width: 250px;
+	height: calc(~"100vh - 100px");
+	position: absolute;
+	top: 100px;
+	left: -250px;
+	transition: left 0.3s;
+	&.open {
+		left: 0;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 20px;
+		li {
+			margin-bottom: 10px;
+			padding: 3px;
+			a {
+				text-decoration: none;
+				color: #fff;
+				span {
+					vertical-align: middle;
+					line-height: 20px;
+				}
+				img {
+					width: 20px;
+					height: 20px;
+					padding-right: 10px;
+					vertical-align: middle;
+				}
+			}
+			&.active {
+				background-color: #fff;
+				a {
+					span {
+						color: #000;
+					}
+					img {
+						filter: brightness(0) saturate(100%) invert(0);
+					}
+				}
+			}
+		}
+	}
+}
+
+.main-content {
+	margin-left: 0;
+	padding: 20px;
+	transition: margin-left 0.3s;
+	&.shift {
+		margin-left: 250px;
+		#logFileContent {
+			max-width: calc(~"100% - 740px");
+		}
+	}
+	h2 {
+		margin: 30px 0;
+		&.second-header {
+			margin-bottom: 5px;
+		}
+	}
+	table {
+		table-layout: fixed;
+		width: auto;
+		border: 1px solid #FFFFFF;
+		text-align: center;
+		border-collapse: collapse;
+		tr:nth-child(even) {
+			background: #D0E4F5;
+		}
+		thead {
+			background: #0B6FA4;
+			border-bottom: 5px solid #FFFFFF;
+			th {
+				font-size: 17px;
+				font-weight: bold;
+				color: #FFFFFF;
+				text-align: center;
+				border-left: 2px solid #FFFFFF;
+				padding: 3px 10px;
+				&:first-child {
+					border-left: none;
+				}
+			}
+		}
+		tbody {
+			tr {
+				th, td {
+					border: 1px solid #FFFFFF;
+					padding: 3px 10px;
+					font-size: 16px;
+					textarea.copypaste {
+						width: 320px;
+						height: 120px;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+header {
+	background-color: #ccc;
+	height: 100px;
+	> div {
+		padding: 5px 20px;
+		display: flex;
+		flex-flow: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 20px;
+		img {
+			width: 45px;
+			height: 45px;
+		}
+	}
+}
+
+.toggle-button {
+	width: 30px;
+	height: 30px;
+	background-image: url("images/side-menu.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	vertical-align: middle;
+	&.open {
+		background-image: url("images/side-menu-open.svg");
+	}
+}
+
+h1.main-header {
+	display: inline-block;
+	margin: 0 0 0 10px;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+div.how-to {
+	margin-top: 30px;
+	padding: 20px;
+	background-color: #eee;
+	background-image: url("images/howto.svg");
+	background-repeat: no-repeat;
+	background-size: 50px;
+	background-position: right top;
+}
+
+#copy-status {
+	background-color: #fe5162;
+	color: #fff;
+	position: fixed;
+	top: 100px;
+	padding: 20px;
+	right: 20px;
+	z-index: 100;
+	&:empty {
+		display: none;
+	}
+}
+
+#logFileContent {
+	background-color: #c0e8ac;
+	color: #000;
+	position: fixed;
+	top: 100px;
+	padding: 20px;
+	right: 20px;
+	max-width: calc(~"100% - 490px");
+	&:empty {
+		display: none;
+	}
+	textarea {
+		max-width: 100%;
+	}
+}
+
+#search-form {
+	margin: 30px 0;
+	padding: 20px;
+	background-color: #eee;
+}

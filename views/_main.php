@@ -3,13 +3,11 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
     die();       
 }
 ?>
-
-<h1>ilPluginAdmin</h1>
+<header><div><img src="./views/css/images/favicons/android-chrome-192x192.png" alt="" /><h1>ilPluginAdmin</h1></div></header>
 <?php
     $baseUrl = $_SERVER[ 'PHP_SELF' ];
     
-    echo '<table><tr><td valign="top">';            // delete me!
-
+    echo '<nav class="side-nav">';
     $allowed = array(
           '' => '' // first
         , 'info' => 'Info'    
@@ -36,15 +34,18 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
         if( $view == $_SESSION[ 'view' ] ) {
             $class = ' class="active"';
         }
-        echo '<li' . $class . '><a href="' . $baseUrl . '?view=' . $view . '"' . $target . '>' . $text . '</a></li>';
+        echo '<li' . $class . '><a href="' . $baseUrl . '?view=' . $view . '"' . $target . '>';
+        echo '<img src="./views/css/images/menu/menu-' . $view . '.svg" alt="' . $text . '" /><span>' . $text . '</span></a></li>';
     }
     
 //    echo '<li><a href="' . dirname( $baseUrl ) . '/views/adminer2.php" target="_blank">adminer</a></li>';
     
     echo '</ul>';
     
-    echo '</td><td valign="top" style="margin-left: 40px;padding-left: 40px; ">';            // delete me!
-    
+    echo '</nav><main class="main-content">';
+    echo '<div id="copy-status"></div>';
+    echo '<button class="toggle-button" title="Seitenleiste anzeigen"></button>';
+
     // include other views
     $filename = $_SESSION[ 'view' ];
     // adminer-special
@@ -58,5 +59,6 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
         }
     }
     
-    echo '</td></tr></table>';            // delete me!
+    echo '</main>';
+    echo '<script src="./views/js/script.js"></script>';
 ?>

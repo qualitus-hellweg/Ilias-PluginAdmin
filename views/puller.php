@@ -3,7 +3,7 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
     die();
 }
 ?>
-<h1>puller</h1>
+<h1 class="main-header">puller</h1>
 <table>
     <tr>
         <th>Name</th>

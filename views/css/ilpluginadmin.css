@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+.side-nav {
+  background-color: #333;
+  color: #fff;
+  width: 250px;
+  height: calc(100vh - 100px);
+  position: absolute;
+  top: 100px;
+  left: -250px;
+  transition: left 0.3s;
+}
+.side-nav.open {
+  left: 0;
+}
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+}
+.side-nav ul li {
+  margin-bottom: 10px;
+  padding: 3px;
+}
+.side-nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+.side-nav ul li a span {
+  vertical-align: middle;
+  line-height: 20px;
+}
+.side-nav ul li a img {
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.side-nav ul li.active {
+  background-color: #fff;
+}
+.side-nav ul li.active a span {
+  color: #000;
+}
+.side-nav ul li.active a img {
+  filter: brightness(0) saturate(100%) invert(0);
+}
+.main-content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+.main-content.shift {
+  margin-left: 250px;
+}
+.main-content.shift #logFileContent {
+  max-width: calc(100% - 740px);
+}
+.main-content h2 {
+  margin: 30px 0;
+}
+.main-content h2.second-header {
+  margin-bottom: 5px;
+}
+.main-content table {
+  table-layout: fixed;
+  width: auto;
+  border: 1px solid #FFFFFF;
+  text-align: center;
+  border-collapse: collapse;
+}
+.main-content table tr:nth-child(even) {
+  background: #D0E4F5;
+}
+.main-content table thead {
+  background: #0B6FA4;
+  border-bottom: 5px solid #FFFFFF;
+}
+.main-content table thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #FFFFFF;
+  padding: 3px 10px;
+}
+.main-content table thead th:first-child {
+  border-left: none;
+}
+.main-content table tbody tr th,
+.main-content table tbody tr td {
+  border: 1px solid #FFFFFF;
+  padding: 3px 10px;
+  font-size: 16px;
+}
+.main-content table tbody tr th textarea.copypaste,
+.main-content table tbody tr td textarea.copypaste {
+  width: 320px;
+  height: 120px;
+}
+header {
+  background-color: #ccc;
+  height: 100px;
+}
+header > div {
+  padding: 5px 20px;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+header > div img {
+  width: 45px;
+  height: 45px;
+}
+.toggle-button {
+  width: 30px;
+  height: 30px;
+  background-image: url("images/side-menu.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  vertical-align: middle;
+}
+.toggle-button.open {
+  background-image: url("images/side-menu-open.svg");
+}
+h1.main-header {
+  display: inline-block;
+  margin: 0 0 0 10px;
+  vertical-align: middle;
+  line-height: 30px;
+}
+div.how-to {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #eee;
+  background-image: url("images/howto.svg");
+  background-repeat: no-repeat;
+  background-size: 50px;
+  background-position: right top;
+}
+#copy-status {
+  background-color: #fe5162;
+  color: #fff;
+  position: fixed;
+  top: 100px;
+  padding: 20px;
+  right: 20px;
+  z-index: 100;
+}
+#copy-status:empty {
+  display: none;
+}
+#logFileContent {
+  background-color: #c0e8ac;
+  color: #000;
+  position: fixed;
+  top: 100px;
+  padding: 20px;
+  right: 20px;
+  max-width: calc(100% - 490px);
+}
+#logFileContent:empty {
+  display: none;
+}
+#logFileContent textarea {
+  max-width: 100%;
+}
+#search-form {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #eee;
+}

@@ -3,7 +3,7 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
     die();
 }
 ?>
-<h1>installer</h1>
+<h1 class="main-header">installer</h1>
 <?php
 $baseUrl = $_SERVER[ 'PHP_SELF' ];
 $search = '';
@@ -11,21 +11,22 @@ if( isset( $_REQUEST[ 'search' ] ) ) {
     $search = $_REQUEST[ 'search' ];
 }
 echo '<form action="' . $baseUrl . '">'
+     . '<div id="search-form">'
      . 'search <input type="text" name="search" value="' . $search . '" />'
      . '<input type="submit">'
-     . '<hr />'
+     . '</div>'
 ;
 if( strlen( $search ) > 0 ) {
     echo '
 <div id="searchresults">
-        <h2>Search-Results</h2>
+        <h2 class="second-header">Search-Results</h2>
 <table>
-    <tr>
+    <thead><tr>
         <th>Name</th>
         <th>Type</th>
         <th>URL</th>
         <th>install</th>   
-    </tr>';
+    </tr></thead><tbody>';
     
     
     $gitdata = GitData::getInstance();
@@ -55,10 +56,9 @@ if( strlen( $search ) > 0 ) {
         ;
     }
     
-    echo '
+    echo '</tbody>
 </table>
 </div>
-<hr />
     ';
 }        
 
@@ -69,13 +69,13 @@ if( strlen( $search ) > 0 ) {
     
     echo '
 <div id="installed">
-<h2>Installed</h2>
+<h2 class="second-header">Installed</h2>
 <table>
-<tr>
+<thead><tr>
     <th>Name</th>
     <th>Type</th>
     <th>delete</th>
-</tr>
+</tr></thead><tbody>
 ';
     foreach( $allRepos as $path ) {
         $repo = new Repoinformation( $path );
@@ -89,7 +89,8 @@ if( strlen( $search ) > 0 ) {
         echo '<td><a href="' . $baseUrl . '?cmd=del&path=' . urlencode( $path ) . '">del</a></td>';
         echo '</tr>';
     }
-    echo '
+    echo '</tbody>
 </table>
 </div>
+</form>
 ';
