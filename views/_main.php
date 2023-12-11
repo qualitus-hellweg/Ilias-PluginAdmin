@@ -19,6 +19,7 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
         , 'installer' => 'Installer'
         , 'phinghelper' => 'plugins.csv(phinghelper)'
         , 'puller' => 'Updates(puller)'
+        , 'about' => 'About'
     );
     
     // render navi

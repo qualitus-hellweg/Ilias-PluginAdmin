@@ -10,7 +10,7 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
     $finder = Repofinder::getInstance();    
     $allRepos = $finder->getAll();
 
-    echo '<a href="' . $baseUrl . '?composerdu=1">composer du</a>';
+    echo '<a href="' . $baseUrl . '?composerdu=1&cmd=1&path=1">composer du</a>';
 ?>
 <table>
     <tr>
