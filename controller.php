@@ -25,8 +25,10 @@ if(
     }
     
     $command = '';
+    $againLink = '';
     if( $_REQUEST[ 'cmd' ] == 'pull' ) {
         $command = 'git pull';
+        $againLink = '<a href="' . $baseUrl . '?cmd=pull&path=' . urlencode( $_REQUEST[ 'path' ] ) . '">AGAIN</a>'; 
     }
     if( $_REQUEST[ 'cmd' ] == 'fetch' ) {
         $command = 'git fetch';
@@ -94,7 +96,8 @@ if(
         }
         $out .= '<b>' . $result . '</b><br />';
         
-        $out .= '<a href="' . $baseUrl . '?cmd=' . $REQUEST[ 'cmd' ] . '&path=' . urlencode( $REQUEST[ 'path' ] ) . '">AGAIN</a>';            
+        
+        $out .= $againLink;           
         
         $out .= '</div>';
         $out .= '</div>';
