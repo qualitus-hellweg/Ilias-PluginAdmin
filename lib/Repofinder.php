@@ -28,6 +28,10 @@ final class Repofinder {
         return self::$instance;
     }
     
+    public static function reInit() {
+        self::$instance = new Repofinder();
+    }
+    
     /**
      * private constructor, pls use getInstance() for instantiation
      */

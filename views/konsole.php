@@ -4,6 +4,14 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
 }
 ?>
 <h1 class="main-header">konsole</h1>
+<?php
+    $baseUrl = $_SERVER[ 'PHP_SELF' ];
+
+    $finder = Repofinder::getInstance();    
+    $allRepos = $finder->getAll();
+
+    echo '<a href="' . $baseUrl . '?composerdu=1">composer du</a>';
+?>
 <table>
     <tr>
         <th>Name</th>
@@ -15,12 +23,7 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
         
         <th>composer</th>        
     </tr>
-<?php
-    $baseUrl = $_SERVER[ 'PHP_SELF' ];
-
-    $finder = Repofinder::getInstance();    
-    $allRepos = $finder->getAll();
-    
+<?php    
     foreach( $allRepos as $path ) {
         $repo = new Repoinformation( $path );
         
@@ -73,7 +76,8 @@ if( ! defined( 'I_WAS_CALLED_FROM_INDEX' ) ) {
                       . '<a href="' . $baseUrl . '?cmd=install-nodev&path=' . urlencode( $path ) . '">install-nodev</a>';
             } else {
                 $composer = '<a href="' . $baseUrl . '?cmd=update&path=' . urlencode( $path ) . '">update</a><br />'
-                      . '<a href="' . $baseUrl . '?cmd=du&path=' . urlencode( $path ) . '">-du</a>';                
+//                      . '<a href="' . $baseUrl . '?cmd=du&path=' . urlencode( $path ) . '">-du</a>'
+                ;                
             }
         }
         

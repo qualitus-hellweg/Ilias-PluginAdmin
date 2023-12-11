@@ -43,14 +43,15 @@ if(
     if( $_REQUEST[ 'cmd' ] == 'update' ) {
         $command = 'composer update --no-interaction';
     }
-    if( $_REQUEST[ 'cmd' ] == 'du' ) {
-        $command = 'composer -du --no-interaction';
-    }
+//    if( $_REQUEST[ 'cmd' ] == 'du' ) {
+//        $command = 'composer -du --no-interaction';
+//    }
     if( $_REQUEST[ 'cmd' ] == 'del' ) {
         if( strlen( $dir ) > 0 ) {
             $plugin = basename( $dir );
             $dir = dirname( $dir );
             $command = 'rm -rf ' . $plugin;
+            Repofinder::reInit();
         }
         
     }    
@@ -63,6 +64,16 @@ if(
         }    
     }
 
+    if( isset( $_REQUEST[ 'composerdu' ] ) ) {
+        $command = "composer du";
+        $dir = ILIAS_FS_PATH;
+    }
+    
+    if( isset( $_REQUEST[ 'pullme' ] ) ) {
+        $command = "git pull";
+        $dir = __DIR__;
+    }
+    
     if(
         ( strlen( $dir ) > 0 )
         && ( strlen( $command ) > 0 )
