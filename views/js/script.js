@@ -35,7 +35,13 @@ toggleButton.addEventListener('click', () => {
 document.addEventListener(
     'click',
     function (event) {
-        if (!event.target.matches('.copypaste')) return;
+
+        if (!event.target.matches('.copypaste')) {
+            if (event.target.id == "shellcommand") {
+                document.getElementById('shellcommand').remove();
+            }
+            return;
+        }
 
         if (!navigator.clipboard) {
             // Clipboard API not available
