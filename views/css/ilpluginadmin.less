@@ -127,6 +127,25 @@ header {
 	}
 }
 
+.composer {
+	display: block;
+	float: right;
+	padding: 10px 12px 10px 40px;
+	background-color: green;
+	background-image: url("images/run.svg");
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 16px;
+	line-height: 20px;
+	&:hover {
+		background-color: #013d01;
+	}
+}
+
 .toggle-button {
 	width: 30px;
 	height: 30px;
@@ -158,12 +177,12 @@ div.how-to {
 
 #copy-status {
 	background-color: #fe5162;
+	z-index: 1001;
 	color: #fff;
 	position: fixed;
 	top: 100px;
 	padding: 20px;
 	right: 20px;
-	z-index: 100;
 	&:empty {
 		display: none;
 	}
@@ -189,4 +208,31 @@ div.how-to {
 	margin: 30px 0;
 	padding: 20px;
 	background-color: #eee;
+}
+
+#shellcommand {
+	position: fixed;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	padding: 20px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,.4);
+	background-image: url("images/close.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+	z-index: 1000;
+	.shellwrapper {
+		background-color: white;
+		padding: 20px;
+	}
+}
+
+#copypaste {
+	display: block;
+	width: 100%;
+	margin-top: 20px;
 }
