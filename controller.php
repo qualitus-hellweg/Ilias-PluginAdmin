@@ -84,8 +84,9 @@ if(
         $fullCommand = 'cd ' . $dir . ' && ' . $command . ' 2>&1';
                 
         $out  =   '<div id="shellcommand">'
+                . '<div class="shellwrapper">'
                 . '<b>' . $fullCommand . '</b>'
-                . '<textarea id="copypaste" rows="1" cols="3">' . $fullCommand . '</textarea>'
+                . '<textarea id="copypaste" class="copypaste" rows="1" cols="3">' . $fullCommand . '</textarea>'
                 . '<br />returns<br />'
                 . '<div id="shelloutput">'
         ;
@@ -99,6 +100,7 @@ if(
         
         $out .= $againLink;           
         
+        $out .= '</div>';
         $out .= '</div>';
         $out .= '</div>';
         echo $out;
@@ -119,6 +121,7 @@ if( isset( $_REQUEST[ 'add' ] ) ) {
         ;
         
         $out = '<div id="shellcommand">'
+            . '<div class="shellwrapper">'
             . '<b>' . $fullCommand . '</b>'                
             . '<br />returns<br />'
             . '<div id="shelloutput">'
@@ -135,7 +138,8 @@ if( isset( $_REQUEST[ 'add' ] ) ) {
 
         $out .= '</div>';
         $out .= '</div>';
-        
+        $out .= '</div>';
+
         echo $out;
     }
 }

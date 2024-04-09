@@ -1,5 +1,5 @@
 <?php 
-    define( 'ILIAS_FS_PATH', __DIR__ . '/../ilias8new' );
+    define( 'ILIAS_FS_PATH', __DIR__ . '/../../jlil7/ilias' );
 
     // leave out, if you dont know what that is
 //    define( 'ILIAS_FUNNY_IP', 'yes' );
